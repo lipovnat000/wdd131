@@ -31,12 +31,12 @@
 
 main
 {
-    border-top: 1px solid lightgrey;
     font-size: 12pt;
     max-width: 480px;
+    line-height: 1.5;
     margin: 0 auto;
     padding-top: 25px;    
-    line-height: 1.5;
+    border-top: 1px solid lightgrey;
 }
 
 li
