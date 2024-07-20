@@ -1,0 +1,55 @@
+#form{
+    position: fixed;
+    width: 550px;
+    height: 310px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+}
+
+.card-front{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 450px;
+    height: 250px;
+    padding: 10px;
+    background-color: bisque;
+    border-radius: 5px;
+}
+
+.card-back{
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+    width: 450px;
+    height: 250px;
+    padding: 10px;
+    background-color: bisque;
+    border-radius: 5px;
+}
+
+#submit{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+}
+
+.exp{
+    display: flex;
+}
+
+.cvc-box{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.card-number{
+    grid-column: 1/3;
+}
