@@ -6,25 +6,23 @@
 }
 
 :root {
-  /* change the values below to your colors from your palette */
+  /* Colors */
   --primary-color: #75b8c8;
   --secondary-color: #FFFFFF;
   --accent1-color: #2e2c2f;
   --accent2-color: #dc493a;
 
-  /* change the values below to your chosen font(s) */
+  /* Fonts */
   --heading-font: Monocraft;
   --paragraph-font: Roboto, Helvetica, sans-serif;
 
-  /* these colors below should be chosen from among your palette colors above */
-  --headline-color-on-white: var(
-    --primary-color
-  ); /* headlines on a white background */
-  --headline-color-on-color: white; /* headlines on a colored background */
-  --paragraph-color-on-white: var(
-    --primary-color
-  ); /* paragraph text on a white background */
-  --paragraph-color-on-color: var(--secondary-color); /* paragraph text on a colored background */
+  /* Text Colors */
+  --headline-color-on-white: var(--primary-color);
+  --headline-color-on-color: white;
+  --paragraph-color-on-white: var(--primary-color);
+  --paragraph-color-on-color: var(--secondary-color);
+
+  /* Background Colors */
   --paragraph-background-color: var(--accent2-color);
   --nav-link-color: var(--secondary-color);
   --nav-background-color: var(--accent1-color);
@@ -32,14 +30,10 @@
   --nav-hover-background-color: var(--accent2-color);
 }
 
-/* Basic styles for the body and main elements */
 body {
     font-family: var(--paragraph-font);
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: #f0f0f0;
 }
 
@@ -49,21 +43,21 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('your-image.jpg') no-repeat center center;
+    background: url('images/background.png') no-repeat center center;
     background-size: cover;
     filter: blur(8px);
-    z-index: -1; /* Ensure the background stays behind the content */
+    z-index: -1;
 }
 
 .content {
-    margin-top: calc(1em + 50px); /* Adjust based on the height of the header */
-    padding: 2em; /* Add padding for the content */
+    margin-top: 4em; /* Adjust based on the height of the header */
+    padding: 2em;
     position: relative;
-    z-index: 1; /* Ensure the content stays above the background */
+    z-index: 1;
     color: white;
     text-align: center;
 }
-/* Styles for the header */
+
 .header-container {
     display: flex;
     align-items: center;
@@ -71,10 +65,10 @@ body {
     padding: 1em;
     width: 100%;
     box-sizing: border-box;
-    position: fixed; /* Keeps the header fixed at the top */
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensures it stays on top */
+    z-index: 1000;
 }
 
 .logo {
@@ -86,10 +80,9 @@ body {
 
 header h1 {
     flex-grow: 1;
-    margin: 0; /* Ensures there is no extra margin */
+    margin: 0;
 }
 
-/* Navigation styles */
 nav {
     background-color: var(--nav-background-color);
     line-height: 3em;
@@ -110,40 +103,18 @@ nav a:hover {
     background-color: var(--nav-hover-background-color);
 }
 
-/* Styles for the body */
-body {
-    font-family: var(--paragraph-font);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f0f0;
-}
-
-/* Adjusted content margin-top to account for header height */
-.content {
-    margin-top: calc(2em + 100px); /* Adjust based on the height of the header */
-    padding: 2em; /* Adds padding for the content */
-    position: relative;
-    z-index: 1; /* Ensures the content stays above the background */
-    color: white;
-    text-align: center;
-}
-
-/* Main video container styles */
 .main-video-container {
     display: flex;
-    flex-direction: row; /* Align items side by side */
-    align-items: stretch; /* Ensure both items have the same height */
-    gap: 1em; /* Space between video player and playlist */
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1em;
     width: 100%;
     box-shadow: 0 0 15px var(--primary-color);
-    margin-top: 2em; /* Additional margin for spacing */
+    margin-top: 2em;
 }
 
 .main-video {
-    flex: 1; /* Allow the video player to grow and fill space */
+    flex: 1;
     text-align: center;
     background-color: var(--secondary-color);
     padding: 1em;
@@ -180,7 +151,6 @@ body {
     background-color: #f0f0f0;
 }
 
-/* Video filter buttons */
 .video-filters {
     text-align: center;
     margin-top: 2em;
@@ -193,7 +163,6 @@ body {
     cursor: pointer;
 }
 
-/* Behind the Scenes section */
 #behind-the-scenes {
     width: 80%;
     margin: 2em 0;
@@ -222,51 +191,78 @@ p.colored {
     color: var(--paragraph-color-on-color);
 }
 
-p{
+p {
     padding: 1em;
     margin: 0 auto;
-    padding: 1em;
-    font-family: var(--paragraph-font);
     max-width: 80%;
     font-size: large;
 }
 
-/* Stack video player and playlist vertically on mobile */
+p#behind-the-scenes-intro {
+    margin-top: 10em;
+}
+
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1em;
+}
+
+figure {
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+figcaption {
+    padding: 0.5em;
+    text-align: center;
+    font-style: italic;
+    color: var(--accent1-color);
+}
+
 @media (max-width: 800px) {
     .main-video-container {
         padding-top: 4em;
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column;
     }
 
     .video-list-container {
-        width: 100%; /* Full width on mobile */
-        max-height: none; /* Remove max-height constraint */
-        margin-top: 1em; /* Add space above the playlist */
+        width: 100%;
+        max-height: none;
+        margin-top: 1em;
     }
 
     .header-container {
-        flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align items to the start */
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .logo {
-        display: none; /* Hide the logo */
+        display: none;
     }
 
     header h1 {
-        margin-bottom: 0.5em; /* Space below the title */
-        margin: 0 auto;
+        margin-bottom: 0.5em;
     }
 
     nav {
-        line-height: 2em; /* Adjust line-height for better spacing */
-        text-align: left; /* Align text to the left */
-        padding: 0; /* Remove padding on mobile view */
-        width: 100%; /* Full width for the nav */;
+        line-height: 2em;
+        text-align: left;
+        padding: 0;
+        width: 100%;
     }
 
     nav a {
-        display: block; /* Stack links vertically */
+        display: block;
         padding: 1em;
         text-decoration: none;
         color: var(--nav-link-color);
@@ -277,5 +273,8 @@ p{
         color: var(--nav-hover-link-color);
         background-color: var(--nav-hover-background-color);
     }
-}
 
+    p#behind-the-scenes-intro {
+        margin-top: 15em;
+    }
+}
