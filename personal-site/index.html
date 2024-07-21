@@ -3,25 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Site</title>
-    <meta name="description" content="This is my personal site.">
-    <meta name="author" content="Nathan Lipovich">
-    <link rel="stylesheet" href="styles/home.css">
+    <title>Pokemaniac_101</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <img src="images/logo.png" alt="logo">
-        <h1>Pokemaniac_101</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="bts.html">Behind the Scenes</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <img src="" alt="">
-    </main>
+    <img src="images/background.png" alt="background" class="background-image">
+    <div class="content">
+        <header>
+            <div class="header-container">
+                <img src="images/logo.png" alt="Site Logo" class="logo">
+                <h1>Pokemaniac_101</h1>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="behind-the-scenes.html">Behind The Scenes</a>
+                </nav>
+            </div>
+        </header>
+        <main id="home">
+            <div class="main-video-container">
+                <div class="main-video">
+                    <iframe id="main-video-player" src="" frameborder="0" allowfullscreen></iframe>
+                    <h2 id="main-video-title"></h2>
+                </div>
+                <div class="video-list-container">
+                    <ul id="video-list">
+                        <!-- Video list will be populated by JavaScript -->
+                    </ul>
+                </div>
+            </div>
+            <div class="video-filters">
+                <button id="popular">Popular</button>
+                <button id="latest">Latest</button>
+                <button id="random">Random</button>
+            </div>
+            <p class="colored" id="welcome-message">Welcome to the official website of Pokemaniac_101! It's currently a work in progress but feel free to explore.</p>
+        </main>
+    </div>
+    <script src="scripts.js" type="module"></script>
 </body>
 </html>

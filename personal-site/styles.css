@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: 'Monocraft';
+  src: url('../fonts/Monocraft.otf') format('truetype');
+}
+
+:root {
+  /* change the values below to your colors from your palette */
+  --primary-color: #75b8c8;
+  --secondary-color: #FFFFFF;
+  --accent1-color: #2e2c2f;
+  --accent2-color: #dc493a;
+
+  /* change the values below to your chosen font(s) */
+  --heading-font: Monocraft;
+  --paragraph-font: Roboto, Helvetica, sans-serif;
+
+  /* these colors below should be chosen from among your palette colors above */
+  --headline-color-on-white: var(
+    --primary-color
+  ); /* headlines on a white background */
+  --headline-color-on-color: white; /* headlines on a colored background */
+  --paragraph-color-on-white: var(
+    --primary-color
+  ); /* paragraph text on a white background */
+  --paragraph-color-on-color: var(--secondary-color); /* paragraph text on a colored background */
+  --paragraph-background-color: var(--accent2-color);
+  --nav-link-color: var(--secondary-color);
+  --nav-background-color: var(--accent1-color);
+  --nav-hover-link-color: white;
+  --nav-hover-background-color: var(--accent2-color);
+}
+
+/* Basic styles for the body and main elements */
+body {
+    font-family: var(--paragraph-font);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('your-image.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1; /* Ensure the background stays behind the content */
+}
+
+.content {
+    margin-top: calc(1em + 50px); /* Adjust based on the height of the header */
+    padding: 2em; /* Add padding for the content */
+    position: relative;
+    z-index: 1; /* Ensure the content stays above the background */
+    color: white;
+    text-align: center;
+}
+/* Styles for the header */
+.header-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--accent1-color);
+    padding: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed; /* Keeps the header fixed at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures it stays on top */
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 1em;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+header h1 {
+    flex-grow: 1;
+    margin: 0; /* Ensures there is no extra margin */
+}
+
+/* Navigation styles */
+nav {
+    background-color: var(--nav-background-color);
+    line-height: 3em;
+    text-align: center;
+    font-size: 1.2em;
+    padding-right: 20%;
+}
+
+nav a {
+    padding: 1em;
+    min-width: 120px;
+    text-decoration: none;
+    color: var(--nav-link-color);
+}
+
+nav a:hover {
+    color: var(--nav-hover-link-color);
+    background-color: var(--nav-hover-background-color);
+}
+
+/* Styles for the body */
+body {
+    font-family: var(--paragraph-font);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+/* Adjusted content margin-top to account for header height */
+.content {
+    margin-top: calc(2em + 100px); /* Adjust based on the height of the header */
+    padding: 2em; /* Adds padding for the content */
+    position: relative;
+    z-index: 1; /* Ensures the content stays above the background */
+    color: white;
+    text-align: center;
+}
+
+/* Main video container styles */
+.main-video-container {
+    display: flex;
+    flex-direction: row; /* Align items side by side */
+    align-items: stretch; /* Ensure both items have the same height */
+    gap: 1em; /* Space between video player and playlist */
+    width: 100%;
+    box-shadow: 0 0 15px var(--primary-color);
+    margin-top: 2em; /* Additional margin for spacing */
+}
+
+.main-video {
+    flex: 1; /* Allow the video player to grow and fill space */
+    text-align: center;
+    background-color: var(--secondary-color);
+    padding: 1em;
+}
+
+.main-video iframe {
+    width: 100%;
+    height: 400px;
+}
+
+.video-list-container {
+    width: 30%;
+    max-height: 500px;
+    overflow-y: scroll;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    color: var(--accent1-color);
+}
+
+.video-list-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-list-container li {
+    padding: 1em;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.video-list-container li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Video filter buttons */
+.video-filters {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.video-filters button {
+    margin: 0 1em;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+/* Behind the Scenes section */
+#behind-the-scenes {
+    width: 80%;
+    margin: 2em 0;
+}
+
+.media-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.media-gallery img, .media-gallery video {
+    width: calc(33.333% - 1em);
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--headline-color-on-white);
+}
+
+p.colored {
+    background-color: var(--paragraph-background-color);
+    color: var(--paragraph-color-on-color);
+}
+
+p{
+    padding: 1em;
+    margin: 0 auto;
+    padding: 1em;
+    font-family: var(--paragraph-font);
+    max-width: 80%;
+    font-size: large;
+}
+
+/* Stack video player and playlist vertically on mobile */
+@media (max-width: 800px) {
+    .main-video-container {
+        padding-top: 4em;
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .video-list-container {
+        width: 100%; /* Full width on mobile */
+        max-height: none; /* Remove max-height constraint */
+        margin-top: 1em; /* Add space above the playlist */
+    }
+
+    .header-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .logo {
+        display: none; /* Hide the logo */
+    }
+
+    header h1 {
+        margin-bottom: 0.5em; /* Space below the title */
+        margin: 0 auto;
+    }
+
+    nav {
+        line-height: 2em; /* Adjust line-height for better spacing */
+        text-align: left; /* Align text to the left */
+        padding: 0; /* Remove padding on mobile view */
+        width: 100%; /* Full width for the nav */;
+    }
+
+    nav a {
+        display: block; /* Stack links vertically */
+        padding: 1em;
+        text-decoration: none;
+        color: var(--nav-link-color);
+        text-align: center;
+    }
+
+    nav a:hover {
+        color: var(--nav-hover-link-color);
+        background-color: var(--nav-hover-background-color);
+    }
+}
+
