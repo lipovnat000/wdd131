@@ -57,3 +57,19 @@ li
     padding-top: 40px;
     padding-bottom: 50px;
 }
+
+.dark
+{
+    background-color: #333;
+    color: white;
+}
+
+.dark .content
+{
+    border-color: white;
+}
+
+.dark .title h2
+{
+    color: rgb(160, 212, 237);
+}
