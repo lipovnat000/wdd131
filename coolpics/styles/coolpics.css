@@ -93,6 +93,26 @@ nav li {
     display: none;
 }
 
+.viewer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: grid;
+    place-items: center;
+    z-index: 10;
+}
+.viewer img {
+    max-height: 100%;
+}
+.close-viewer {
+    position: absolute;
+    top: 10px; right: 10px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
 @media screen and (min-width: 700px) {
 
     nav ul{
@@ -113,7 +133,7 @@ nav li {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    button {
+    button #menuButton {
         display: none;
     }
 

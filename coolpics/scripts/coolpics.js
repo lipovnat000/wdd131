@@ -43,7 +43,7 @@ function checkScreenSize() {
 // Variable to keep track of the last window width
 let lastWidth = window.innerWidth;
 
-function onResize() {
+function handleResize() {
     var element = document.getElementById('menu');
 
     // Only hide/show the menu if the window crosses the 700px threshold
@@ -61,4 +61,37 @@ function onResize() {
 document.addEventListener('DOMContentLoaded', checkScreenSize);
 
 // Check screen size when the window is resized
-window.addEventListener('resize', onResize);
+window.addEventListener('resize', handleResize);
+
+
+function viewerTemplate(pic, alt) {
+    return `<div class="viewer">
+      <button class="close-viewer">X</button>
+      <img src="${pic}" alt="${alt}">
+      </div>`;
+  }
+
+function viewHandler(event) {
+    const clickedElement = event.target;
+    
+    if (clickedElement.tagName === "IMG") {
+        const pic = clickedElement.src.replace("-sm.jpeg", "-full.jpeg");
+        const alt = clickedElement.alt;
+
+        document.body.insertAdjacentHTML("afterbegin", viewerTemplate(pic, alt));
+
+        document.querySelector('.close-viewer').addEventListener('click', closeViewer);
+    }
+}
+
+
+function closeViewer() {
+    const viewer = document.querySelector('.viewer');
+    if (viewer) {
+        viewer.remove();
+    }
+}
+
+
+document.querySelector('#gallery').addEventListener('click', viewHandler);
+
