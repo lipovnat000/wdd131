@@ -281,17 +281,100 @@ const recipes = [
 ]
 
 function hideDescription() {
-    const description = document.getElementByClass("description");
+    const descriptions = document.getElementsByClassName("description"); // Get all elements with class "description"
 
     const targetWidth = 700;
     const currentWidth = window.innerWidth;
-    if (currentWidth < targetWidth) {
-        Element.classList.add("hidden");
-    } else {
-        Element.classList.remove("hidden");
+
+    for (let i = 0; i < descriptions.length; i++) {
+        if (currentWidth < targetWidth) {
+            descriptions[i].classList.add("hidden");  // Properly reference each element
+        } else {
+            descriptions[i].classList.remove("hidden");
+        }
     }
 }
 
-hideDescription();
-
 window.addEventListener("resize", hideDescription);
+hideDescription(); // Run on page load
+
+
+function getRandomRecipe(recipes){
+	const randomIndex = Math.floor(Math.random() * recipes.length);
+	const randomObject = recipes[randomIndex];
+	return randomObject
+}
+
+function recipeTemplate(recipe){
+	return `
+		<img src="${recipe.image}" alt="${recipe.name}" class="recipe-img">
+		<div class="recipe-info">
+			<h2 class="recipe-type">${tagsTemplate(recipe.tags)}</h2>
+			<h2 class="recipe-name">${recipe.name}</h2>
+			<span
+				class="rating"
+				role="img"
+				aria-label="Rating: ${recipe.rating} out of 5 stars"
+			>
+				${ratingTemplate(recipe.rating)}
+			</span>
+			<p class="description">${recipe.description}</p>
+		</div>
+	`
+}
+
+function tagsTemplate(tags){
+	return tags.map((tag)=> `<h2>${tag}<h2>`).join(' ');
+}
+
+function ratingTemplate(rating){
+	let html;
+	for (let i = 1; i <= 5; i++) {
+		if (i <= rating) {
+			html = `<span aria-hidden="true" class="icon-star">⭐</span>`
+		} else {
+			html = `<span aria-hidden="true" class="icon-star-empty">☆</span>`
+		}
+	}
+
+	return html;
+}
+
+function renderRecipes(recipeList){
+	let recipeContainer = document.querySelector('.recipe');
+	let html = recipeTemplate(recipeList);
+	recipeContainer.innerHTML += html;
+}
+
+function displayRandomRecipe() {
+    const randomRecipe = getRandomRecipe(recipes);
+    const container = document.getElementById("random-recipe-container");
+
+    container.innerHTML = `
+        <div class="recipe-container">
+            <img src="${randomRecipe.image}" alt="${randomRecipe.name}" class="recipe-img">
+            <div class="recipe-info">
+                <h2 class="recipe-type">${tagsTemplate(randomRecipe.tags)}</h2>
+                <h2 class="recipe-name">${randomRecipe.name}</h2>
+                <span class="rating">
+                    ${generateStars(randomRecipe.rating)}
+                </span>
+                <p class="description">${randomRecipe.description}</p>
+            </div>
+        </div>
+    `;
+}
+
+
+function init(){
+	const recipe = getRandomRecipe(recipes);
+	let recipeContainer = document.querySelector('.recipe');
+	recipeContainer.innerHTML = '';
+	renderRecipes(recipe);
+}
+
+init();
+displayRandomRecipe();
+
+const recipe = getRandomRecipe(recipes);
+console.log(recipe);

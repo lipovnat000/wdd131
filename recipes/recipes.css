@@ -59,6 +59,10 @@
     margin: 0;
 }
 
+.recipe-type{
+    outline: auto 3px;
+}
+
 .recipe-img{
     width: 500px;
     justify-self: center;
