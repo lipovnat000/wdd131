@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="puzzle.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Choose a difficulty</h1>
+            <div id="difficulty-container">
+                <button id="normal" class="active" onclick="selectDifficulty('normal')">Normal</button>
+                <button id="hard" class="active" onclick="selectDifficulty('hard')">Hard</button>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Choose an image</h1>
+            <div id="image-container">
+                <img src="images/dimette.jpg" alt="dimette" id="dimette" onclick="selectImage('dimette')">
+                <img src="images/wwo.jpg" alt="wwo" id="wwo" onclick="selectImage('wwo')">
+            </div>
+        </div>
+        <button id="start" class="inactive" onclick="startGame()">Start</button>
+    </main>
+</body>
+</html>
