@@ -1,4 +1,3 @@
-// These will only be defined on index.html
 let difficulty = null;
 let image = null;
 
@@ -48,16 +47,13 @@ function startGame() {
     const startButton = document.getElementById("start");
 
     if (startButton.classList.contains("active")) {
-        // Store selections
         localStorage.setItem("difficulty", difficulty);
         localStorage.setItem("image", image);
 
-        // Redirect to the puzzle page
         window.location.href = "puzzle.html";
     }
 }
 
-// Call this on puzzle.html after the DOM loads
 function setupPuzzlePage() {
     const difficulty = localStorage.getItem("difficulty");
     const image = localStorage.getItem("image");
@@ -83,7 +79,6 @@ function shuffle(difficulty, image) {
         array.push(i);
     }
 
-    // Fisher–Yates shuffle
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
@@ -94,17 +89,15 @@ function shuffle(difficulty, image) {
         const img = document.createElement("img");
         img.src = `images/${image}/${difficulty}/${array[i]}.jpg`;
         img.alt = `Piece ${array[i]}`;
-        piece.innerHTML = ''; // Clear old content
+        piece.innerHTML = '';
         piece.appendChild(img);
     }
 }
 
-// Only run on menu page
 if (document.getElementById("start")) {
     setInterval(checkStartEligible, 100);
 }
 
-// Only run on puzzle.html
 window.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById("puzzle")) {
         setupPuzzlePage();
@@ -132,7 +125,6 @@ function shuffleAndRenderPieces(difficulty, image) {
     const total = difficulty === "normal" ? 9 : 16;
     const array = Array.from({ length: total }, (_, i) => i);
 
-    // Fisher-Yates shuffle
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
@@ -143,7 +135,7 @@ function shuffleAndRenderPieces(difficulty, image) {
         const img = document.createElement("img");
         img.src = `images/${image}/${difficulty}/${array[i]}.jpg`;
         img.alt = `Piece ${array[i]}`;
-        piece.innerHTML = ""; // Clear any old content
+        piece.innerHTML = "";
         piece.appendChild(img);
         piece.addEventListener("click", handlePieceClick);
     }
@@ -155,15 +147,12 @@ function handlePieceClick(e) {
     const clickedPiece = e.currentTarget;
 
     if (!firstSelectedPiece) {
-        // First piece selected
         firstSelectedPiece = clickedPiece;
         firstSelectedPiece.classList.add("selected");
     } else if (clickedPiece === firstSelectedPiece) {
-        // Clicked same piece again
         firstSelectedPiece.classList.remove("selected");
         firstSelectedPiece = null;
     } else {
-        // Swap images between firstSelectedPiece and clickedPiece
         swapImages(firstSelectedPiece, clickedPiece);
 
         firstSelectedPiece.classList.remove("selected");
