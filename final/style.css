@@ -17,6 +17,12 @@ main {
     flex-direction: column;
     gap: 20px;
     align-items: center;
+    transition: transform 0.4s;
+}
+
+body {
+    margin: 200px;
+    background-color: rgb(64, 172, 215);
 }
 
 .container {
@@ -112,4 +118,12 @@ img.clicked {
 
 .normal #piece_9, .normal #piece_10, .normal #piece_11, .normal #piece_12, .normal #piece_13, .normal #piece_14, .normal #piece_15 {
     display: none;
+}
+
+@media screen and (max-width: 700px) {
+    main {
+        transform: scale(0.4);
+    }
+    
+
 }
